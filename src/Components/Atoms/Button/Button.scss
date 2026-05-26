@@ -1,0 +1,26 @@
+.button {
+  margin: 8px;
+  padding: 6px 16px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--primary {
+    background-color: lightblue;
+    color: black;
+  }
+
+  &--secondary {
+    background-color: purple;
+    color: black;
+  }
+
+  &--success {
+    background-color: green;
+    color: black;
+  }
+}
