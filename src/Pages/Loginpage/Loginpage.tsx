@@ -13,7 +13,7 @@ function LoginPage() {
 
   return (
     <div>
-      <h1>ログインページ</h1>
+      <h1>ログイン</h1>
       <LoginForm onSubmit={onSubmit} />
     </div>
   );
