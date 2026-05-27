@@ -1,30 +1,26 @@
-import "./LoginPage.scss"
-import { useNavigate, Link } from "react-router-dom";
+import "../LoginPage/LoginPage.scss";
+import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../../Components/Organisms/LoginForm/LoginForm";
 import type { FormValues } from "../../validators/types";
 
-function LoginPage() {
+function AdminLoginPage() {
   const navigate = useNavigate();
 
   const onSubmit = (data: FormValues) => {
-    console.log(data);
-
-    const fakeToken ="test-token";
-    localStorage.setItem("token", fakeToken)
+    console.log("管理者ログイン", data);
 
     navigate("/home");
   };
 
   return (
     <div className="loginpage">
-      <h1>ログイン</h1>
+      <h1>管理者ログイン</h1>
       <LoginForm onSubmit={onSubmit} />
 
-      <Link to="/admin-login">
-      管理者ログイン
-      </Link>
+      <Link to="/login">
+      ログインページ</Link>
     </div>
   );
 }
 
-export default LoginPage;
+export default AdminLoginPage;

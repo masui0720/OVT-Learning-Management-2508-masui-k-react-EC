@@ -1,3 +1,4 @@
+import "./LoginForm.scss";
 import BasicTextFields from "../../Atoms/TextField/TextField";
 import Button from "../../Atoms/Button/Button";
 import { useForm } from "react-hook-form";
@@ -20,7 +21,7 @@ function LoginForm({ onSubmit }: Props) {
   const rules = getLoginRules(password);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="loginform" onSubmit={handleSubmit(onSubmit)}>
 
       <div className="formRow">
         <p className="formLabel">メールアドレス</p>

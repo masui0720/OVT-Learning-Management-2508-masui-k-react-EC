@@ -1,15 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage/LoginPage";
+import AdminLoginPage from "./Pages/AdminLoginPage/AdminLoginPage";
+import TopPage from "./Pages/TopPage/TopPage";
+import CartPage from "./Pages/CartPage/CartPage";
 
-function HomePage() {
-  return <h1>ECサイトトップページ</h1>;
-}
 
 export default function App() {
   return (
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin-login" element={<AdminLoginPage />} />
+        <Route path="/home" element={<TopPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
   );
 }
