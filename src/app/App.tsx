@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import LoginPage from "./Pages/LoginPage/LoginPage";
-import AdminLoginPage from "./Pages/AdminLoginPage/AdminLoginPage";
-import TopPage from "./Pages/TopPage/TopPage";
-import CartPage from "./Pages/CartPage/CartPage";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import AdminLoginPage from "../pages/AdminLoginPage/AdminLoginPage";
+import TopPage from "../pages/TopPage/TopPage";
+import CartPage from "../pages/CartPage/CartPage";
 
 
 export default function App() {

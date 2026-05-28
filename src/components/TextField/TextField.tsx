@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
-import "./Textfield.scss";
+import "./TextField.scss";
 
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   size?: "small" | "medium";
   color?: "primary" | "secondary" | "success" | "error";
 };
 
-const BasicTextFields = forwardRef<HTMLInputElement, Props>(
+const TextFields = forwardRef<HTMLInputElement, Props>(
   ({ size = "medium", color = "primary", className, ...rest }, ref) => {
     return (
       <input
@@ -18,6 +18,6 @@ const BasicTextFields = forwardRef<HTMLInputElement, Props>(
   }
 );
 
-BasicTextFields.displayName = "BasicTextFields";
+TextFields.displayName = "BasicTextFields";
 
-export default BasicTextFields;
+export default TextFields;

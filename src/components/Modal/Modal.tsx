@@ -6,7 +6,7 @@ type Props = {
   onClose: () => void;
 };
 
-function MenuModal({ isOpen, onClose }: Props) {
+function Modal({ isOpen, onClose }: Props) {
   const navigate = useNavigate();
 
   if (!isOpen) return null;
@@ -42,4 +42,4 @@ function MenuModal({ isOpen, onClose }: Props) {
   );
 }
 
-export default MenuModal;
+export default Modal;

@@ -1,6 +1,6 @@
 import "../LoginPage/LoginPage.scss";
 import { Link, useNavigate } from "react-router-dom";
-import LoginForm from "../../Components/Organisms/LoginForm/LoginForm";
+import LoginForm from "../../features/LoginForm/LoginForm";
 import type { FormValues } from "../../validators/types";
 
 function AdminLoginPage() {

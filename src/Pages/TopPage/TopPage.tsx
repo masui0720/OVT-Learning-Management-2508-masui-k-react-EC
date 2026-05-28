@@ -1,6 +1,6 @@
 import "./TopPage.scss";
-import Header from "../../Components/Organisms/Header/Header";
-import Footer from "../../Components/Organisms/Footer/Footer";
+import Header from "../../components//Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 function TopPage() {
   return (
