@@ -2,7 +2,9 @@ import "./HeaderIcons.scss";
 import { Link } from "react-router-dom";
 
 type Props = {
-  onMenuClick: () => void;
+  onMenuClick: (
+    event: React.MouseEvent<HTMLElement>
+  ) => void;
 };
 
 function HeaderIcons({ onMenuClick }: Props) {

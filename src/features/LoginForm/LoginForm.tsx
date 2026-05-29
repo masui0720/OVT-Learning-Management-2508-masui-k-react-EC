@@ -1,9 +1,9 @@
 import "./LoginForm.scss";
-import TextFields from "../../components/TextField/TextField";
-import Button from "../../components/Button/Button";
 import { useForm } from "react-hook-form";
 import type { FormValues } from "../../validators/types";
 import { getLoginRules } from "../../validators/rules";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 type Props = {
   onSubmit: (data: FormValues) => void;
@@ -25,24 +25,29 @@ function LoginForm({ onSubmit }: Props) {
 
       <div className="formRow">
         <p className="formLabel">メールアドレス</p>
-        <TextFields
+        <TextField
           placeholder="メールアドレス"
           {...register("email", rules.email)}
-        />
-        {errors.email && <p>{errors.email.message}</p>}
+          error={!!errors.email}
+          helperText={errors.email?.message}/>
       </div>
 
       <div className="formRow">
         <p className="formLabel">パスワード</p>
-        <TextFields
+        <TextField
+          type="password"
           placeholder="パスワード"
           {...register("password", rules.password)}
-        />
-        {errors.password && <p>{errors.password.message}</p>}
+          error={!!errors.password}
+          helperText={errors.password?.message}/>
       </div>
 
 
-      <Button label="ログイン" type="submit" />
+      <Button 
+        variant="contained"
+        type="submit">
+        ログイン 
+        </Button>
     </form>
   );
 }

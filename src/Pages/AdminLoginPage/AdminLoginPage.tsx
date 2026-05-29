@@ -2,12 +2,17 @@ import "../LoginPage/LoginPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../../features/LoginForm/LoginForm";
 import type { FormValues } from "../../validators/types";
+import { useAuthStore } from "../../stores/authStore";
 
 function AdminLoginPage() {
   const navigate = useNavigate();
+  const setToken = useAuthStore((state) => state.setToken);
 
   const onSubmit = (data: FormValues) => {
     console.log("管理者ログイン", data);
+
+    const fakeToken = "admin-token";
+    setToken(fakeToken); 
 
     navigate("/home");
   };

@@ -1,44 +1,65 @@
 import "./Modal.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../stores/authStore";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
+  anchorEl: HTMLElement | null;
 };
 
-function Modal({ isOpen, onClose }: Props) {
+function Modal({
+  isOpen,
+  onClose,
+  anchorEl,
+}: Props) {
   const navigate = useNavigate();
 
-  if (!isOpen) return null;
+  const token = useAuthStore((state) => state.token);
+  const logout = useAuthStore((state) => state.logout);
 
-  const isLoggedIn = !!localStorage.getItem("token");
+  const isLoggedIn = !!token;
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    logout();
     onClose();
     navigate("/login");
   };
 
   return (
-    <div className="modalOverlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modalList">
-          <Link to="/mypage">マイページ</Link>
+    <Menu
+      anchorEl={anchorEl}
+      open={isOpen}
+      onClose={onClose}
+    >
+      <MenuItem
+        component={Link}
+        to="/mypage"
+        onClick={onClose}
+      >
+        マイページ
+      </MenuItem>
 
-          {isLoggedIn ? (
-            <Link to="/login"
-              onClick={() => {
-                localStorage.removeItem("token");
-                onClose();
-              }}>
-              ログアウト
-            </Link>
-          ) : (
-            <Link to="/login">ログイン</Link>
-          )}
-        </div>
-      </div>
-    </div>
+      {isLoggedIn ? (
+        <MenuItem
+          component={Link}
+          to="/login"
+          onClick={handleLogout}
+        >
+          ログアウト
+        </MenuItem>
+      ) : (
+        <MenuItem
+          component={Link}
+          to="/login"
+          onClick={onClose}
+        >
+          ログイン
+        </MenuItem>
+      )}
+    </Menu>
   );
 }
 

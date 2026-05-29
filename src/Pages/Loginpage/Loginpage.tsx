@@ -2,15 +2,19 @@ import "./LoginPage.scss"
 import { useNavigate, Link } from "react-router-dom";
 import LoginForm from "../../features/LoginForm/LoginForm";
 import type { FormValues } from "../../validators/types";
+import { useAuthStore } from "../../stores/authStore";
 
 function LoginPage() {
   const navigate = useNavigate();
+  const setToken = useAuthStore((state) => state.setToken);
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
 
     const fakeToken ="test-token";
-    localStorage.setItem("token", fakeToken)
+
+    setToken(fakeToken);
+    localStorage.setItem("token", fakeToken);
 
     navigate("/home");
   };
