@@ -14,7 +14,6 @@ function LoginPage() {
     const fakeToken ="test-token";
 
     setToken(fakeToken);
-    localStorage.setItem("token", fakeToken);
 
     navigate("/home");
   };
