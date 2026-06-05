@@ -1,0 +1,40 @@
+.topPage {
+  min-height: 100vh;
+}
+
+.topPageContent {
+  padding-top: 40px;
+}
+
+.welcomeTitle {
+  text-align: center;
+}
+
+.productTitle {
+  margin-left: 20px;
+  margin-top: 32px;
+}
+
+.productCard {
+  width: 120px;
+  border: 1px solid black;
+  padding: 12px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.imageBox {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto 12px;
+}
+
+.productInfo {
+  text-align: left;
+}

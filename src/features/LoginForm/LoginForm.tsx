@@ -1,8 +1,9 @@
-import BasicTextFields from "../../Atoms/TextField/TextField";
-import Button from "../../Atoms/Button/Button";
+import "./LoginForm.scss";
 import { useForm } from "react-hook-form";
-import type { FormValues } from "../../../validators/types";
-import { getLoginRules } from "../../../validators/rules";
+import type { FormValues } from "../../validators/types";
+import { getLoginRules } from "../../validators/rules";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 type Props = {
   onSubmit: (data: FormValues) => void;
@@ -20,28 +21,33 @@ function LoginForm({ onSubmit }: Props) {
   const rules = getLoginRules(password);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="loginform" onSubmit={handleSubmit(onSubmit)}>
 
       <div className="formRow">
         <p className="formLabel">メールアドレス</p>
-        <BasicTextFields
+        <TextField
           placeholder="メールアドレス"
           {...register("email", rules.email)}
-        />
-        {errors.email && <p>{errors.email.message}</p>}
+          error={!!errors.email}
+          helperText={errors.email?.message}/>
       </div>
 
       <div className="formRow">
         <p className="formLabel">パスワード</p>
-        <BasicTextFields
+        <TextField
+          type="password"
           placeholder="パスワード"
           {...register("password", rules.password)}
-        />
-        {errors.password && <p>{errors.password.message}</p>}
+          error={!!errors.password}
+          helperText={errors.password?.message}/>
       </div>
 
 
-      <Button label="ログイン" type="submit" />
+      <Button 
+        variant="contained"
+        type="submit">
+        ログイン 
+        </Button>
     </form>
   );
 }

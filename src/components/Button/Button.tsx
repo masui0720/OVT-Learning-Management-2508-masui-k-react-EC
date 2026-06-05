@@ -11,7 +11,7 @@ type Props = {
 export default function Button(props: Props) {
   const {
     label,
-    color,
+    color = "primary",
     onClick,
     className = "",
     type = "button",
